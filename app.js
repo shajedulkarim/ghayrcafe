@@ -51,7 +51,7 @@
     var p = document.createElement("div");
     p.className = "panel"; p.id = "panel-" + c.id; p.setAttribute("role", "tabpanel");
     p.setAttribute("aria-labelledby", b.id); p.hidden = idx !== 0;
-    p.innerHTML = '<div class="panel__head"><h3>' + esc(c.label) + '</h3><span class="panel__ar" lang="ar" dir="rtl">' + esc(c.ar) + "</span></div><ul class=\"items\">" +
+    p.innerHTML = '<div class="panel__head"><h3>' + esc(c.label) + '</h3><span class="panel__ar" lang="ar" dir="rtl">' + esc(c.ar) + "</span></div><ul class=\"items" + (c.items.some(function (i) { return i.img; }) ? " has-thumbs" : "") + "\">" +
       c.items.map(function (i) {
         return "<li>" + (i.img ? '<img class="thumb" src="' + i.img + '" alt="' + esc(i.name) + '" width="52" height="72" loading="lazy">' : "") + "<span class=\"n\">" + esc(i.name) + (i.house ? " <small>House</small>" : "") + '</span><span class="dots"></span>' + price(i.price) + "</li>";
       }).join("") + "</ul>";

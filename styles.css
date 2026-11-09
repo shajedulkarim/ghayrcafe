@@ -183,3 +183,5 @@ address{font-style:normal;font-size:17px;line-height:1.6}
   .items li{break-inside:avoid}
 }
 [hidden]{display:none!important}
+
+.items.has-thumbs li{min-height:92px;align-items:center}
