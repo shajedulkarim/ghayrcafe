@@ -53,9 +53,9 @@ em{font-style:normal}
 /* hero */
 .hero{position:relative;min-height:calc(100vh - var(--nav-h));min-height:calc(100svh - var(--nav-h) - var(--safe-t));background:var(--burgundy);color:var(--cream);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 0%,rgba(209,148,129,.22),transparent 60%),radial-gradient(100% 60% at 50% 100%,rgba(0,0,0,.28),transparent 70%);pointer-events:none}
-.hero__inner{position:relative;width:100%;max-width:520px;padding:28px var(--gut) calc(var(--dock-h) + var(--safe-b) + 28px);display:flex;flex-direction:column;align-items:center}
+.hero__inner{position:relative;width:100%;max-width:520px;padding:76px var(--gut) calc(var(--dock-h) + var(--safe-b) + 28px);display:flex;flex-direction:column;align-items:center}
 .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
-.glyph--hero{height:min(30svh,230px);margin:22px 0 4px;color:var(--cream)}
+.glyph--hero{height:min(25svh,210px);margin:22px 0 4px;color:var(--cream)}
 .hero__ar{font-family:var(--font-ar);font-size:34px;line-height:1.1;color:var(--terracotta);margin-bottom:6px}
 .hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(36px,10.5vw,60px);line-height:1.04;letter-spacing:-.01em;margin:6px 0 14px}
 .hero h1 em{color:var(--terracotta)}
@@ -185,3 +185,33 @@ address{font-style:normal;font-size:17px;line-height:1.6}
 [hidden]{display:none!important}
 
 .items.has-thumbs li{min-height:92px;align-items:center}
+
+/* language switch + Arabic / RTL */
+.lang-switch{position:absolute;top:14px;inset-inline-end:max(16px,env(safe-area-inset-right));z-index:2;min-height:44px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid rgba(239,231,212,.4);border-radius:99px;color:var(--cream);font-size:15px;font-weight:600}
+.lang-switch:hover{background:rgba(239,231,212,.1)}
+html[lang=ar]{--font-display:"Aref Ruqaa","Geeza Pro",serif;--font-body:"Readex Pro","Geeza Pro",system-ui,sans-serif}
+html[lang=ar] body{font-size:16.5px;line-height:1.7}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] .nav__name{font-weight:700;letter-spacing:0}
+html[lang=ar] h1{font-size:clamp(44px,13vw,72px);line-height:1.2}
+html[lang=ar] h2{font-size:clamp(38px,10vw,56px);line-height:1.25}
+html[lang=ar] h3{font-size:26px}
+html[lang=ar] .nav__name{font-size:26px}
+html[lang=ar] .eyebrow,html[lang=ar] .sig small,html[lang=ar] .contact span,html[lang=ar] .items .n small{letter-spacing:0;text-transform:none}
+html[lang=ar] .eyebrow{font-size:14px}
+html[lang=ar] .contact span{font-size:14px}
+html[lang=ar] .items .n{font-size:17.5px}
+html[lang=ar] .tab,html[lang=ar] .btn,html[lang=ar] .status,html[lang=ar] .dock__a{letter-spacing:0}
+html[lang=ar] .sig strong{font-size:22px;line-height:1.4}
+html[lang=ar] .ar-inline{font-family:var(--font-display);font-size:1.5em}
+html[lang=ar] .panel__ar{font-family:var(--font-body);font-size:15px;color:var(--burgundy);font-weight:500}
+[dir=rtl] .facts span{text-align:left}
+[dir=rtl] .items .n small{margin-left:0;margin-right:8px}
+[dir=rtl] .status--card{margin-left:0;margin-right:10px}
+[dir=rtl] .nav__links{margin-left:0;margin-right:auto}
+[dir=rtl] .status--nav{margin-left:0;margin-right:auto}
+@media (min-width:900px){[dir=rtl] .status--nav{margin-right:28px}}
+[dir=rtl] .price{direction:ltr;unicode-bidi:isolate}
+
+.hero h1,.hero__sub,.lede{text-wrap:balance}
+@media (min-width:900px){.hero__inner{padding-top:56px}}
+@media (max-width:699px){.status--hero{display:none}}
