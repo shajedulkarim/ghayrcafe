@@ -19,7 +19,7 @@
       ["Quram", "https://maps.app.goo.gl/1EcZRAR65WJHLYNo8"],
       ["Snaw", "https://maps.app.goo.gl/65a87UE7ZbVPJWFP6"]
     ],
-    featured: ["Ghair Latte", "Ghair Frappe", "Ghair Ice Shaken", "Ghair Cookies"]
+    featured: [["hot", "Ghair Latte"], ["cold", "Ghair Frappe"], ["dessert", "Ghair Cookies"], ["dessert", "Tiramisu"]]
   };
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -28,13 +28,13 @@
   var price = function (p) { return '<span class="price"><span class="cur">OMR</span>' + p.toFixed(3) + "</span>"; };
 
   /* ---- signature ---- */
-  var seen = {};
-  var all = [];
-  MENU.forEach(function (c) { c.items.forEach(function (i) { all.push({ cat: c.label, item: i }); }); });
-  $("#sig").innerHTML = CAFE.featured.map(function (n) {
-    var f = all.filter(function (x) { return x.item.name === n; })[0];
-    if (!f) return "";
-    return '<li class="reveal"><small>' + esc(f.cat) + '</small><strong>' + esc(f.item.name) + "</strong>" + price(f.item.price) + "</li>";
+  var cats = {};
+  MENU.forEach(function (c) { cats[c.id] = c; });
+  $("#sig").innerHTML = CAFE.featured.map(function (f) {
+    var c = cats[f[0]], it = c.items.filter(function (x) { return x.name === f[1]; })[0];
+    if (!it) return "";
+    return '<li class="reveal">' + (it.img ? '<img src="' + it.img + '" alt="' + esc(it.name) + '" width="198" height="272" loading="lazy">' : "") +
+      '<div class="sig__t"><small>' + esc(c.label) + "</small><strong>" + esc(it.name) + "</strong>" + price(it.price) + "</div></li>";
   }).join("");
 
   /* ---- menu tabs + panels ---- */
@@ -53,7 +53,7 @@
     p.setAttribute("aria-labelledby", b.id); p.hidden = idx !== 0;
     p.innerHTML = '<div class="panel__head"><h3>' + esc(c.label) + '</h3><span class="panel__ar" lang="ar" dir="rtl">' + esc(c.ar) + "</span></div><ul class=\"items\">" +
       c.items.map(function (i) {
-        return "<li><span class=\"n\">" + esc(i.name) + (i.house ? " <small>House</small>" : "") + '</span><span class="dots"></span>' + price(i.price) + "</li>";
+        return "<li>" + (i.img ? '<img class="thumb" src="' + i.img + '" alt="' + esc(i.name) + '" width="52" height="72" loading="lazy">' : "") + "<span class=\"n\">" + esc(i.name) + (i.house ? " <small>House</small>" : "") + '</span><span class="dots"></span>' + price(i.price) + "</li>";
       }).join("") + "</ul>";
     panels.appendChild(p);
   });

@@ -95,9 +95,11 @@ h3{font-family:var(--font-display);font-weight:600;font-size:21px;margin-bottom:
 .signature{background:var(--terracotta)}
 .signature .kicker,.signature h2 em{color:var(--burgundy-deep)}
 .sig{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-.sig li{background:var(--cream);border-radius:18px;padding:18px 16px 16px;min-height:132px;display:flex;flex-direction:column;justify-content:space-between}
+.sig li{background:var(--cream);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.sig img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 78%;background:var(--terracotta)}
+.sig__t{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1;justify-content:space-between;min-height:104px}
 .sig small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--burgundy)}
-.sig strong{font-family:var(--font-display);font-size:21px;line-height:1.15;font-weight:600;margin:10px 0}
+.sig strong{font-family:var(--font-display);font-size:20px;line-height:1.15;font-weight:600;margin:8px 0 10px}
 .price{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
 .price .cur{font-size:.72em;letter-spacing:.1em;margin-right:.35em;opacity:.7;font-weight:700}
 
@@ -113,6 +115,8 @@ h3{font-family:var(--font-display);font-weight:600;font-size:21px;margin-bottom:
 .panel__head h3{font-size:26px;margin:0}
 .panel__ar{font-family:var(--font-ar);font-size:22px;color:var(--burgundy)}
 .items li{display:flex;align-items:baseline;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);min-height:52px}
+.thumb{flex:none;width:52px;height:72px;object-fit:cover;object-position:50% 88%;border-radius:10px;background:var(--terracotta);align-self:center}
+.items li:has(.thumb){padding:10px 0;align-items:center}
 .items .n{font-weight:500;font-size:17px}
 .items .n small{display:inline-block;margin-left:8px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--burgundy);border:1px solid var(--burgundy);border-radius:99px;padding:2px 7px;vertical-align:2px}
 .items .dots{flex:1;border-bottom:1.5px dotted rgba(42,13,12,.3);transform:translateY(-4px);min-width:16px}
